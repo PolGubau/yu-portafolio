@@ -24,8 +24,10 @@ export const site = {
 	titleSeparator: " - ",
 };
 
-// Who built the website. Only used in the page metadata (not shown on screen).
+// Who built the website. Used in the page metadata and in the small line at
+// the bottom of /about-me.
 export const credit = {
+	label: "Web by",
 	name: "Pol Gubau Amores",
 	url: "https://polgubau.com",
 };

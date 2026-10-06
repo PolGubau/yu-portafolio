@@ -40,6 +40,7 @@ export const projects: Project[] = [
 		category: 'Fragance',
 		date: '14/07/2025',
 		thumbnail: '/media/portfolio/DSCF0117.JPG',
+		video: 'https://www.youtube.com/embed/UnXvh1sNZx0?rel=0&modestbranding=1',
 		paragraphs: [
 			'Limit 0 is a fragrance inspired by the search for the tenth marble.',
 			'It tells the story of Elias, who suffers from arithmomania (an obsessive-compulsive disorder). Once he buried ten marbles in the desert, but when he dug them up, one was missing. He decided to bury them again to find the tenth marble, and thus Elias enters an absurd loop of burying and digging up.',
