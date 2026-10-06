@@ -1,0 +1,24 @@
+---
+import Photo from "./Photo.astro";
+const { projects } = Astro.props;
+---
+
+<div class="project-grid">
+	{
+		projects.map((project, index) => (
+			<article class="project-card">
+				<a class="project-card-main" href={`/${project.slug}`}>
+					<Photo
+						src={project.thumbnail}
+						alt=""
+						sizes="(min-width: 700px) 50vw, 100vw"
+						widths={[400, 700, 1000]}
+						priority={index < 2}
+					/>
+					<span>{project.title.toLowerCase()}</span>
+				</a>
+				<span class="project-card-tag">{project.category.toLowerCase()}</span>
+			</article>
+		))
+	}
+</div>

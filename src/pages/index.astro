@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Photo from "../components/Photo.astro";
+import { home } from "../content/site.js";
+const { corners } = home;
+---
+
+<BaseLayout title={home.title} description={home.description} footer={false}>
+	<main class="home-hero">
+		<Photo
+			class="hero-photo"
+			src={home.photo}
+			alt={home.photoAlt}
+			widths={[480, 800, 1200, 1600, 2000]}
+			priority
+		/>
+		<nav class="home-nav" aria-label="Main navigation">
+			<a class="home-top-left" href={corners.topLeft.href}
+				>{corners.topLeft.label}</a
+			>
+			<a class="home-top-right" href={corners.topRight.href}
+				>{corners.topRight.label}</a
+			>
+			<a class="home-bottom-left" href={corners.bottomLeft.href}
+				>{corners.bottomLeft.label}</a
+			>
+			<a class="home-bottom-right" href={corners.bottomRight.href}
+				>{corners.bottomRight.label}</a
+			>
+		</nav>
+		<Photo
+			class="hero-logo"
+			src={home.logo}
+			alt={home.logoAlt}
+			sizes="(max-width: 700px) 74vw, 50vw"
+			widths={[500, 800, 1200, 1800]}
+			priority
+		/>
+	</main>
+</BaseLayout>

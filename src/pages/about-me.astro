@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Photo from "../components/Photo.astro";
+import { about, contact, pageTitle } from "../content/site.js";
+
+// Escapes HTML, then turns **text** into <strong>text</strong>.
+const format = (text: string) =>
+	text
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+---
+
+<BaseLayout title={pageTitle(about.title)}>
+	<main class="page-shell about-page">
+		<div class="about-copy">
+			<h1>{about.heading}</h1>
+			{
+				about.paragraphs.map((text, index) => (
+					<>
+						<p set:html={format(text)} />
+						{index + 1 === about.inset.afterParagraph && (
+							<figure class="about-inset">
+								<Photo
+									src={about.inset.src}
+									alt={about.inset.alt}
+									sizes="(min-width: 700px) 30vw, 40vw"
+									widths={[400, 700, 1000]}
+								/>
+							</figure>
+						)}
+					</>
+				))
+			}
+			<div class="about-links">
+				<h2><a href={`mailto:${contact.email}`}>{about.contactHeading}</a></h2>
+				<a href={`mailto:${contact.email}`}>{contact.email}</a>
+				<a href={contact.instagram.url} target="_blank" rel="noreferrer"
+					>Instagram<br />{contact.instagram.handle}</a
+				>
+				<a href={contact.soundcloud.url} target="_blank" rel="noreferrer"
+					><strong>{contact.soundcloud.label}</strong><br />{
+						contact.soundcloud.url
+					}</a
+				>
+			</div>
+		</div>
+		<figure class="about-portrait">
+			<Photo
+				src={about.portrait.src}
+				alt={about.portrait.alt}
+				sizes="(min-width: 700px) 58vw, 60vw"
+				widths={[500, 900, 1400, 1700]}
+				priority
+			/>
+		</figure>
+	</main>
+</BaseLayout>

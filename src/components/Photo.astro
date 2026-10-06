@@ -1,0 +1,51 @@
+---
+import { Picture, getImage } from "astro:assets";
+
+// Resolves '/media/…' paths from projects.js to the optimised images in src/assets/media.
+const files = import.meta.glob(
+	"/src/assets/media/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}",
+	{
+		eager: true,
+		import: "default",
+	},
+);
+
+const {
+	src,
+	alt = "",
+	sizes = "100vw",
+	widths = [400, 800, 1200, 1600],
+	priority = false,
+	zoom = false,
+	...rest
+} = Astro.props;
+
+const image = files[`/src/assets${src.replace(/^\/media/, "/media")}`];
+if (!image) throw new Error(`Photo: image not found for "${src}"`);
+
+// Large version, only downloaded when the visitor opens the zoom.
+const zoomImage = zoom
+	? await getImage({
+			src: image,
+			format: "webp",
+			width: Math.min(2400, image.width),
+			quality: 80,
+		})
+	: null;
+const zoomAttrs = zoomImage ? { "data-zoom-src": zoomImage.src } : {};
+---
+
+<Picture
+	src={image}
+	alt={alt}
+	formats={["avif", "webp"]}
+	fallbackFormat={src.toLowerCase().endsWith(".png") ? "png" : "jpg"}
+	widths={widths}
+	sizes={sizes}
+	quality={70}
+	loading={priority ? "eager" : "lazy"}
+	fetchpriority={priority ? "high" : "auto"}
+	decoding={priority ? "sync" : "async"}
+	{...zoomAttrs}
+	{...rest}
+/>

@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { events } from "../content/projects.js";
+import Photo from "../components/Photo.astro";
+
+import { djMusic, contact, pageTitle } from "../content/site.js";
+const gallery = djMusic.gallery;
+---
+
+<BaseLayout title={pageTitle(djMusic.title)} description={djMusic.description}>
+	<main class="page-shell music-page">
+		<section class="music-copy">
+			<h1><a href="/">{djMusic.heading}</a></h1>
+			<div class="music-links">
+				<span>
+					<strong>{djMusic.linkLabels.sets}</strong><a
+						href={contact.soundcloud.url}
+						target="_blank"
+						rel="noreferrer">{contact.soundcloud.url}</a
+					>
+				</span>
+				<span
+					><strong>{djMusic.linkLabels.contact}</strong><a
+						href={`mailto:${contact.email}`}>{contact.email}</a
+					></span
+				>
+				<span>
+					<strong>{djMusic.linkLabels.instagram}</strong>
+					<a href={contact.instagram.url} target="_blank" rel="noreferrer"
+						>{contact.instagram.handle}</a
+					>
+				</span>
+			</div>
+			<h2 class="events-title">{djMusic.eventsHeading}</h2>
+			<table class="events-table">
+				<thead
+					><tr>{djMusic.eventsColumns.map((column) => <th>{column}</th>)}</tr
+					></thead
+				>
+				<tbody
+					>{
+						events.map(([name, location, genres, type, date]) => (
+							<tr>
+								<>
+									<td>{name}</td>
+									<td>{location}</td>
+									<td>{genres}</td>
+									<td>{type}</td>
+									<td>{date}</td>
+								</>
+							</tr>
+						))
+					}</tbody
+				>
+			</table>
+		</section>
+		<aside class="music-gallery" aria-label={djMusic.galleryLabel}>
+			{
+				gallery.map((image, index) => (
+					<Photo
+						src={image}
+						alt={`${djMusic.photoAlt} - ${index + 1}`}
+						sizes="(min-width: 700px) 45vw, 50vw"
+						widths={[400, 700, 1000, 1400]}
+						priority={index === 0}
+						zoom
+					/>
+				))
+			}
+		</aside>
+	</main>
+</BaseLayout>

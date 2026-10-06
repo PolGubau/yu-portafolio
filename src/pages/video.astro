@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectGrid from "../components/ProjectGrid.astro";
+import { projects } from "../content/projects.js";
+import { video, pageTitle } from "../content/site.js";
+
+const filteredProjects = projects.filter(
+	(project) => project.category === "video",
+);
+---
+
+<BaseLayout title={pageTitle(video.title)} description={video.description}>
+	<main class="page-shell portfolio-page">
+		<ProjectGrid projects={filteredProjects} />
+	</main>
+</BaseLayout>

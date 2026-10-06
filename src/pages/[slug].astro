@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { projects } from "../content/projects.js";
+import Photo from "../components/Photo.astro";
+import { contact, projectPage, pageTitle } from "../content/site.js";
+
+export function getStaticPaths() {
+	return projects.map((project) => ({
+		params: { slug: project.slug },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout
+	title={pageTitle(project.title)}
+	description={projectPage.description.replace("{category}", project.category)}
+>
+	<main class="project-detail page-shell">
+		<div class="project-date">{project.date}</div>
+		<section
+			class="project-gallery"
+			aria-label={`${project.title} ${projectPage.galleryLabel}`}
+		>
+			{
+				project.video && (
+					<div class="project-video">
+						<iframe
+							src={project.video}
+							title={projectPage.videoTitle}
+							allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+							referrerpolicy="strict-origin-when-cross-origin"
+							loading="lazy"
+						/>
+					</div>
+				)
+			}
+			{
+				project.media.map((image, index: number) => (
+					<figure class="project-image">
+						<Photo
+							src={image}
+							alt={`${project.title} - ${projectPage.imageAlt} ${index + 1}`}
+							sizes="(min-width: 700px) 66vw, 100vw"
+							widths={[500, 900, 1400, 1800]}
+							priority={index === 0}
+							zoom
+						/>
+					</figure>
+				))
+			}
+			{
+				project.caption && (
+					<p class="project-gallery-caption">{project.caption}</p>
+				)
+			}
+		</section>
+		<aside class="project-description">
+			<header class="project-header">
+				<h1>{project.title}</h1>
+				<div class="project-contact">
+					<a href={`mailto:${contact.email}`}>{projectPage.contactLabel}</a>
+					<a href={contact.instagram.url} target="_blank" rel="noreferrer"
+						>{projectPage.instagramLabel}</a
+					>
+				</div>
+			</header>
+			<p class="project-category">{project.category}</p>
+			{
+				project.paragraphs.map((paragraph, index) => (
+					<p class:list={{ "project-lede": index === 0 }}>{paragraph}</p>
+				))
+			}
+			{
+				project.list && (
+					<ol class="package-list">
+						{project.list.map((item) => (
+							<li>{item}</li>
+						))}
+					</ol>
+				)
+			}
+			{
+				project.credits?.map((credit) => (
+					<p class="project-credit">
+						<strong>{credit.split(":")[0]}:</strong>
+						{credit.slice(credit.indexOf(":") + 1)}
+					</p>
+				))
+			}
+		</aside>
+	</main>
+</BaseLayout>

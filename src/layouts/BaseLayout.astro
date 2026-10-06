@@ -1,0 +1,111 @@
+---
+import "../styles/site.css";
+import { getImage } from "astro:assets";
+import logo from "../assets/media/home/primary_whiteyunaplena.png";
+import { site, navigation } from "../content/site.js";
+
+const favicon = await getImage({ src: logo, width: 64, format: "png" });
+
+const {
+	title = site.name,
+	description = site.description,
+	footer = true,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#ffffff" />
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		{
+			Astro.site && (
+				<link
+					rel="canonical"
+					href={new URL(Astro.url.pathname, Astro.site).href}
+				/>
+			)
+		}
+		<title>{title}</title>
+		<link
+			rel="preload"
+			href="/fonts/dm-sans.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/instrument-serif.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link rel="icon" type="image/png" href={favicon.src} />
+	</head>
+	<body>
+		<slot />
+		<script>
+			// medium-zoom is only fetched when the page has zoomable photos, and only
+			// once the browser is idle or the visitor first interacts. The large image
+			// (data-zoom-src) is downloaded only when a photo is opened.
+			const photos =
+				document.querySelectorAll<HTMLImageElement>("img[data-zoom-src]");
+			if (photos.length) {
+				let started = false;
+				const start = async () => {
+					if (started) return;
+					started = true;
+					const { default: mediumZoom } = await import("medium-zoom");
+					mediumZoom(Array.from(photos), {
+						margin: 16,
+						background: "rgba(255, 255, 255, 0.96)",
+					});
+				};
+				for (const type of ["pointerover", "touchstart", "focusin"]) {
+					document.addEventListener(type, start, { once: true, passive: true });
+				}
+				if ("requestIdleCallback" in window) requestIdleCallback(start);
+				else setTimeout(start, 1500);
+			}
+		</script>
+		{
+			footer && (
+				<footer class="site-footer" aria-label="Main navigation">
+					{navigation.map(({ label, href }) => {
+						const isCurrentPage =
+							href === currentPath ||
+							(currentPath === "/art-direction" && href === "/portfolio") ||
+							(currentPath === "/video" && href === "/portfolio") ||
+							(currentPath !== "/" &&
+								![
+									"/portfolio",
+									"/dj-music",
+									"/about-me",
+									"/art-direction",
+									"/video",
+								].includes(currentPath) &&
+								href === "/portfolio");
+						return (
+							<a
+								href={href}
+								class:list={{ "is-current": isCurrentPage }}
+								aria-current={isCurrentPage ? "page" : undefined}
+							>
+								<span>{label}</span>
+							</a>
+						);
+					})}
+				</footer>
+			)
+		}
+	</body>
+</html>
