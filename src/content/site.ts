@@ -24,6 +24,12 @@ export const site = {
 	titleSeparator: " - ",
 };
 
+// Who built the website. Only used in the page metadata (not shown on screen).
+export const credit = {
+	name: "Pol Gubau Amores",
+	url: "https://polgubau.com",
+};
+
 export const contact = {
 	email: "yuvilaseca@gmail.com",
 	instagram: { url: "https://www.instagram.com/yunaplenaa/", handle: "@yunaplenaa" },

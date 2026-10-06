@@ -2,7 +2,7 @@
 import "../styles/site.css";
 import { getImage } from "astro:assets";
 import logo from "../assets/media/home/primary_whiteyunaplena.png";
-import { site, navigation, contact } from "../content/site";
+import { site, navigation, contact, credit } from "../content/site";
 
 const favicon = await getImage({ src: logo, width: 64, format: "png" });
 
@@ -13,6 +13,16 @@ const {
 } = Astro.props;
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+// Structured data: tells search engines who built the site.
+const structuredData = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: site.name,
+	description: site.description,
+	url: Astro.site?.href,
+	creator: { "@type": "Person", name: credit.name, url: credit.url },
+}).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -23,6 +33,13 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 		<meta name="theme-color" content="#ffffff" />
 		<meta name="description" content={description} />
 		<meta name="robots" content="index, follow" />
+		<meta name="author" content={credit.name} />
+		<meta
+			name="keywords"
+			content={`${site.name}, web design by ${credit.name}, ${credit.url.replace("https://", "")}`}
+		/>
+		<link rel="author" href={credit.url} />
+		<script is:inline type="application/ld+json" set:html={structuredData} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />

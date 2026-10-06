@@ -62,7 +62,8 @@ const gallery = djMusic.gallery;
 						alt={`${djMusic.photoAlt} - ${index + 1}`}
 						sizes="(min-width: 700px) 45vw, 50vw"
 						widths={[400, 700, 1000, 1400]}
-						priority={index === 0}
+						priority={index < 2}
+						loading={index < 5 ? "eager" : "lazy"}
 						zoom
 					/>
 				))
