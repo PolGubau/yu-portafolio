@@ -77,8 +77,6 @@ export const projectPage = {
 	galleryLabel: "gallery", // "<project title> gallery"
 	imageAlt: "image", // "<project title> - image 1"
 	videoTitle: "Yunaplena presentation",
-	contactLabel: "Contact.",
-	instagramLabel: "IG.",
 };
 
 export const djMusic = {

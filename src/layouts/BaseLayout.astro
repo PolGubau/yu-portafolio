@@ -2,7 +2,7 @@
 import "../styles/site.css";
 import { getImage } from "astro:assets";
 import logo from "../assets/media/home/primary_whiteyunaplena.png";
-import { site, navigation } from "../content/site";
+import { site, navigation, contact } from "../content/site";
 
 const favicon = await getImage({ src: logo, width: 64, format: "png" });
 
@@ -104,6 +104,14 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 							</a>
 						);
 					})}
+					<a
+						class="footer-ig"
+						href={contact.instagram.url}
+						target="_blank"
+						rel="noreferrer"
+					>
+						{contact.instagram.handle}
+					</a>
 				</footer>
 			)
 		}

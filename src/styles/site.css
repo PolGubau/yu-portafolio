@@ -99,10 +99,28 @@ img { display: block; max-width: 100%; height: auto; }
 	font: 600 12px/1 var(--sans);
 	text-align: center;
 }
+.site-footer { view-transition-name: site-footer; }
+a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 .site-footer a { padding: 12px 4px; transition: color 150ms ease; }
 .site-footer a:hover { color: rgba(255,255,255,.55); }
 .site-footer a span { position: relative; display: inline-block; }
 .site-footer a.is-current { color: #fff; }
+.site-footer .footer-ig { display: none; }
+@media (min-width: 700px) {
+	.site-footer { padding: 0 120px; }
+	.site-footer .footer-ig {
+		display: block;
+		position: absolute;
+		right: 16px;
+		top: 50%;
+		translate: 0 -50%;
+		padding: 12px 4px;
+		font-size: 10px;
+		font-weight: 400;
+		color: rgba(255,255,255,.6);
+	}
+}
 .site-footer a.is-current span::after {
 	position: absolute;
 	left: 0;

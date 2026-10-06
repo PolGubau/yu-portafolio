@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { projects, type Project } from "../content/projects";
 import Photo from "../components/Photo.astro";
-import { contact, projectPage, pageTitle } from "../content/site";
+import { projectPage, pageTitle } from "../content/site";
 
 export function getStaticPaths() {
 	return projects.map((project) => ({
@@ -50,6 +50,11 @@ const { project } = Astro.props;
 							sizes="(min-width: 700px) 66vw, 100vw"
 							widths={[500, 900, 1400, 1800]}
 							priority={index === 0}
+							style={
+								index === 0
+									? `view-transition-name: project-${project.slug}`
+									: undefined
+							}
 							zoom
 						/>
 					</figure>
@@ -64,12 +69,6 @@ const { project } = Astro.props;
 		<aside class="project-description">
 			<header class="project-header">
 				<h1>{project.title}</h1>
-				<div class="project-contact">
-					<a href={`mailto:${contact.email}`}>{projectPage.contactLabel}</a>
-					<a href={contact.instagram.url} target="_blank" rel="noreferrer"
-						>{projectPage.instagramLabel}</a
-					>
-				</div>
 			</header>
 			<p class="project-category">{project.category}</p>
 			{
