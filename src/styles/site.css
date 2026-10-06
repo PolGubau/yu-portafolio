@@ -312,6 +312,12 @@ img[data-zoom-src] { cursor: zoom-in; }
 	.project-header h1 { font-size: 32px; }
 }
 
+/* Page transitions: short cross-fade between pages (browsers without support ignore it). */
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition { navigation: auto; }
+	::view-transition-old(root), ::view-transition-new(root) { animation-duration: .25s; }
+}
+
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
