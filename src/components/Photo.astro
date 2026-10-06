@@ -1,14 +1,26 @@
 ---
 import { Picture, getImage } from "astro:assets";
 
-// Resolves '/media/…' paths from projects.js to the optimised images in src/assets/media.
-const files = import.meta.glob(
+// Resolves '/media/…' paths from the content files to the optimised images in src/assets/media.
+const files = import.meta.glob<ImageMetadata>(
 	"/src/assets/media/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}",
 	{
 		eager: true,
 		import: "default",
 	},
 );
+
+interface Props extends astroHTML.JSX.ImgHTMLAttributes {
+	/** Path under /media, e.g. "/media/home/yu.JPG". */
+	src: string;
+	alt?: string;
+	sizes?: string;
+	widths?: number[];
+	/** Above-the-fold image: loaded eagerly with high priority. */
+	priority?: boolean;
+	/** Enables click-to-zoom with a large version loaded on demand. */
+	zoom?: boolean;
+}
 
 const {
 	src,

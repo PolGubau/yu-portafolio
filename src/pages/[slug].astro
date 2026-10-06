@@ -1,14 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { projects } from "../content/projects.js";
+import { projects, type Project } from "../content/projects";
 import Photo from "../components/Photo.astro";
-import { contact, projectPage, pageTitle } from "../content/site.js";
+import { contact, projectPage, pageTitle } from "../content/site";
 
 export function getStaticPaths() {
 	return projects.map((project) => ({
 		params: { slug: project.slug },
 		props: { project },
 	}));
+}
+
+interface Props {
+	project: Project;
 }
 
 const { project } = Astro.props;

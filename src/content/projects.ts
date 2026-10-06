@@ -1,4 +1,25 @@
-export const projects = [
+export interface Project {
+	slug: string;
+	title: string;
+	/** "video" goes to /video, anything else to /art-direction. */
+	category: string;
+	/** dd/mm/yyyy */
+	date: string;
+	thumbnail: string;
+	/** Embed URL (e.g. Vimeo player). */
+	video?: string;
+	caption?: string;
+	paragraphs: string[];
+	list?: string[];
+	/** "Role: Name" */
+	credits?: string[];
+	media: string[];
+}
+
+/** [name, location, genres, type, date] */
+export type Event = [name: string, location: string, genres: string, type: string, date: string];
+
+export const projects: Project[] = [
 	{
 		slug: 'yunaplena-presentation',
 		title: 'yunaplena presentation',
@@ -105,7 +126,8 @@ export const projects = [
 	},
 ];
 
-export const events = [
+
+export const events: Event[] = [
 	['Resident at W Barcelona', 'Hotel W Barcelona', 'House, Soulful, Jackin, Nu-Disco', 'Club & Ambient', 'Now'],
 	['Noxe Club', 'W Barcelona, Bcn', 'House', 'Club', 'Jun ‘26'],
 	['“Le nozze di Figaro”', 'The Social Hub, Bcn', 'House, Jackin, Nu-Disco', 'Private Event', 'May ‘26'],

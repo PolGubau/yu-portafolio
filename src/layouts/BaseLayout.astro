@@ -2,7 +2,7 @@
 import "../styles/site.css";
 import { getImage } from "astro:assets";
 import logo from "../assets/media/home/primary_whiteyunaplena.png";
-import { site, navigation } from "../content/site.js";
+import { site, navigation } from "../content/site";
 
 const favicon = await getImage({ src: logo, width: 64, format: "png" });
 

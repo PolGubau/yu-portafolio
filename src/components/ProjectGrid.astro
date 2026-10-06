@@ -1,5 +1,11 @@
 ---
 import Photo from "./Photo.astro";
+import type { Project } from "../content/projects";
+
+interface Props {
+	projects: Project[];
+}
+
 const { projects } = Astro.props;
 ---
 

@@ -6,6 +6,16 @@
 // them bold.
 // ─────────────────────────────────────────────────────────────────────────────
 
+export interface Link {
+	label: string;
+	href: string;
+}
+
+export interface PhotoInfo {
+	src: string;
+	alt: string;
+}
+
 export const site = {
 	name: "Yunaplena",
 	// Used when a page has no description of its own.
@@ -21,7 +31,7 @@ export const contact = {
 };
 
 // Footer navigation shown on every page except the home.
-export const navigation = [
+export const navigation: Link[] = [
 	{ label: "Home", href: "/" },
 	{ label: "Portfolio", href: "/portfolio" },
 	{ label: "DJ & Music", href: "/dj-music" },
@@ -117,4 +127,4 @@ export const about = {
 };
 
 // Builds "<page title> - <site name>".
-export const pageTitle = (title) => `${title}${site.titleSeparator}${site.name}`;
+export const pageTitle = (title: string): string => `${title}${site.titleSeparator}${site.name}`;
