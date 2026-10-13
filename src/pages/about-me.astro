@@ -24,7 +24,7 @@ const format = (text: string) =>
 								<Photo
 									src={about.inset.src}
 									alt={about.inset.alt}
-									sizes="(min-width: 700px) 30vw, 40vw"
+									sizes="(min-width: 700px) 30vw, calc(100vw - 28px)"
 									widths={[400, 700, 1000]}
 									zoom
 								/>
@@ -54,7 +54,7 @@ const format = (text: string) =>
 			<Photo
 				src={about.portrait.src}
 				alt={about.portrait.alt}
-				sizes="(min-width: 700px) 58vw, 60vw"
+				sizes="(min-width: 700px) 58vw, calc(100vw - 28px)"
 				widths={[500, 900, 1400, 1700]}
 				priority
 				zoom

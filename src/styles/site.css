@@ -330,11 +330,12 @@ img[data-zoom-src] { cursor: zoom-in; }
 	.project-grid { grid-template-columns: minmax(0, 1fr); column-gap: 0; row-gap: 36px; }
 	.project-card-main > span { font-size: 13px; }
 	.project-card-tag { font-size: 10px; }
-	.about-page { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1rem; }
+	.about-page { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+	.about-copy { max-width: none; }
 	.about-copy h1, .music-copy h1 { font-size: 32px; }
 	.about-copy p { margin-bottom: 12px; font-size: 12px; }
-	.about-portrait { top: 10px; }
-	.about-portrait img { height: auto; }
+	.about-portrait { position: static; top: auto; grid-column: 1; }
+	.about-portrait img { width: 100%; max-width: none; height: auto; }
 	.music-page { display: block; }
 	.music-links { align-items: flex-start; flex-direction: column; gap: 9px; margin-bottom: 28px; }
 	.music-links span { gap: 12px; }
