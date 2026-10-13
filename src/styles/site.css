@@ -314,18 +314,22 @@ img[data-zoom-src] { cursor: zoom-in; }
 
 @media (max-width: 620px) {
 	:root { --page-inset: 14px; }
-	.home-hero { min-height: 540px; }
+	.home-hero { min-height: min(540px, 100svh); }
 	.hero-photo { object-position: 50% 42%; }
-	.hero-logo { width: 74vw; min-width: 0; }
-	.home-nav a { font-size: clamp(21px, 5.5vw, 29px); }
+	.hero-logo {
+		top: max(clamp(96px, 18svh, 190px), calc(56px + 12.85vw));
+		width: 66vw;
+		min-width: 0;
+	}
+	.home-nav a { font-size: clamp(27px, 7.6vw, 38px); }
 	.home-top-left, .home-bottom-left { left: 13px; }
 	.home-top-right, .home-bottom-right { right: 13px; }
 	.home-top-left, .home-top-right { top: 14px; }
 	.home-bottom-left, .home-bottom-right { bottom: 16px; }
 	.site-footer { height: 50px; padding: 0 5px; font-size: 10px; }
-	.project-grid { column-gap: 18px; row-gap: 42px; }
-	.project-card-main > span { font-size: 11px; }
-	.project-card-tag { font-size: 9px; }
+	.project-grid { grid-template-columns: minmax(0, 1fr); column-gap: 0; row-gap: 36px; }
+	.project-card-main > span { font-size: 13px; }
+	.project-card-tag { font-size: 10px; }
 	.about-page { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1rem; }
 	.about-copy h1, .music-copy h1 { font-size: 32px; }
 	.about-copy p { margin-bottom: 12px; font-size: 12px; }
