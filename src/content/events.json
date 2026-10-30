@@ -1,0 +1,185 @@
+[
+	{
+		"name": "Resident at W Barcelona",
+		"location": "Hotel W Barcelona",
+		"genres": "House, Soulful, Jackin, Nu-Disco",
+		"type": "Club & Ambient",
+		"date": "Now",
+		"photo": "/media/dj/IMG_1172.jpg"
+	},
+	{
+		"name": "Noxe Club",
+		"location": "W Barcelona, Bcn",
+		"genres": "House",
+		"type": "Club",
+		"date": "Jun ‘26"
+	},
+	{
+		"name": "“Le nozze di Figaro”",
+		"location": "The Social Hub, Bcn",
+		"genres": "House, Jackin, Nu-Disco",
+		"type": "Private Event",
+		"date": "May ‘26"
+	},
+	{
+		"name": "La Siesta Afterwork",
+		"location": "Salt Restaurant, Bcn",
+		"genres": "House, Jackin, Soulful",
+		"type": "Ambient",
+		"date": "May ‘26"
+	},
+	{
+		"name": "Sant Jordi W Barcelona",
+		"location": "Salt Restaurant, Bcn",
+		"genres": "House, Jackin, Soulful",
+		"type": "Private Event",
+		"date": "Apr ‘26"
+	},
+	{
+		"name": "Birthday Party",
+		"location": "El Patrón Restaurant, Bcn",
+		"genres": "Open format",
+		"type": "Private Event",
+		"date": "Apr ‘26"
+	},
+	{
+		"name": "Open Day Elisava",
+		"location": "Elisava, Bcn",
+		"genres": "Soulful, Jackin",
+		"type": "Event",
+		"date": "Apr ‘26"
+	},
+	{
+		"name": "Club Motel",
+		"location": "PNC Radio, Bcn",
+		"genres": "Techno",
+		"type": "Showcase",
+		"date": "Mar ‘26"
+	},
+	{
+		"name": "Casa Très",
+		"location": "The Pharmacy, Bcn",
+		"genres": "House & Tech house",
+		"type": "Private Event",
+		"date": "Feb ‘26"
+	},
+	{
+		"name": "Club Rodeo x Salto Festival (Half Marathon Event)",
+		"location": "Trafalgar Pizza Club, Bcn",
+		"genres": "House & Tech house",
+		"type": "Sport Event",
+		"date": "Feb ‘26"
+	},
+	{
+		"name": "Macarena Club x Plastic Academia x Ibiza Sonica Radio",
+		"location": "Macarena Club, Bcn",
+		"genres": "Deep House / Deep Tech",
+		"type": "Club",
+		"date": "Dec ‘25"
+	},
+	{
+		"name": "Climbat La Foixarda",
+		"location": "Barcelona",
+		"genres": "House & Tech house",
+		"type": "Private Event",
+		"date": "Dec ‘25"
+	},
+	{
+		"name": "Bulder Planet 10th Anniversary Party",
+		"location": "Mataró",
+		"genres": "House & Tech house",
+		"type": "Sport Event",
+		"date": "Nov ‘25"
+	},
+	{
+		"name": "G + J Birthday Party",
+		"location": "Casa Bonay, Bcn",
+		"genres": "House, Disco, Classics",
+		"type": "Private Party",
+		"date": "Nov ‘25"
+	},
+	{
+		"name": "Sumak Terra",
+		"location": "El Palauet Royal, Bcn",
+		"genres": "House & Latin Tech",
+		"type": "Private Event",
+		"date": "Nov ‘25"
+	},
+	{
+		"name": "Futbol Solidari 10th Anniversary Party",
+		"location": "Mataró",
+		"genres": "Urban",
+		"type": "Party",
+		"date": "Nov ‘25"
+	},
+	{
+		"name": "Club Rodeo",
+		"location": "Sea You House, Bcn",
+		"genres": "House & Tech house",
+		"type": "Sport Event",
+		"date": "Nov ‘25"
+	},
+	{
+		"name": "SíSí restaurant inauguration",
+		"location": "The Social Hub, Bcn",
+		"genres": "Deep House / Deep Tech",
+		"type": "Private",
+		"date": "Sep ‘25"
+	},
+	{
+		"name": "Elisava Degree Show",
+		"location": "Las Tres Chimeneas, Bcn",
+		"genres": "Techno",
+		"type": "Showcase",
+		"date": "Jun ‘25"
+	},
+	{
+		"name": "La Textil Collective Afterparty",
+		"location": "La Textil, Bcn",
+		"genres": "House & Tech house",
+		"type": "Afterparty",
+		"date": "May ‘25"
+	},
+	{
+		"name": "Casino Barcelona",
+		"location": "Casino, Bcn",
+		"genres": "Deep House & Soulful",
+		"type": "Ambient",
+		"date": "Apr ‘25"
+	},
+	{
+		"name": "Macarena Club",
+		"location": "Macarena Club, Bcn",
+		"genres": "Depp House / Deep Tech",
+		"type": "Club",
+		"date": "Apr ‘25"
+	},
+	{
+		"name": "Bulder Planet",
+		"location": "Mataró",
+		"genres": "House & Tech house",
+		"type": "Sport Event",
+		"date": "Mar ‘25"
+	},
+	{
+		"name": "Pacha Barcelona",
+		"location": "Pacha Club, Bcn",
+		"genres": "House & Tech house",
+		"type": "Club",
+		"date": "Feb ‘25"
+	},
+	{
+		"name": "Casino Barcelona",
+		"location": "Casino, Bcn",
+		"genres": "Deep House & Soulful",
+		"type": "Ambient",
+		"date": "Jan ‘25"
+	},
+	{
+		"name": "Christmas Fair",
+		"location": "El Moll de la Fusta, Bcn",
+		"genres": "Pop",
+		"type": "Ambient",
+		"date": "Dec ‘24"
+	}
+]

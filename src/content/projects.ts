@@ -16,9 +16,6 @@ export interface Project {
 	media: string[];
 }
 
-/** [name, location, genres, type, date] */
-export type Event = [name: string, location: string, genres: string, type: string, date: string];
-
 export const projects: Project[] = [
 	{
 		slug: 'yunaplena-presentation',
@@ -125,34 +122,4 @@ export const projects: Project[] = [
 			'/media/portfolio/cover-05.png',
 		],
 	},
-];
-
-
-export const events: Event[] = [
-	['Resident at W Barcelona', 'Hotel W Barcelona', 'House, Soulful, Jackin, Nu-Disco', 'Club & Ambient', 'Now'],
-	['Noxe Club', 'W Barcelona, Bcn', 'House', 'Club', 'Jun ‘26'],
-	['“Le nozze di Figaro”', 'The Social Hub, Bcn', 'House, Jackin, Nu-Disco', 'Private Event', 'May ‘26'],
-	['La Siesta Afterwork', 'Salt Restaurant, Bcn', 'House, Jackin, Soulful', 'Ambient', 'May ‘26'],
-	['Sant Jordi W Barcelona', 'Salt Restaurant, Bcn', 'House, Jackin, Soulful', 'Private Event', 'Apr ‘26'],
-	['Birthday Party', 'El Patrón Restaurant, Bcn', 'Open format', 'Private Event', 'Apr ‘26'],
-	['Open Day Elisava', 'Elisava, Bcn', 'Soulful, Jackin', 'Event', 'Apr ‘26'],
-	['Club Motel', 'PNC Radio, Bcn', 'Techno', 'Showcase', 'Mar ‘26'],
-	['Casa Très', 'The Pharmacy, Bcn', 'House & Tech house', 'Private Event', 'Feb ‘26'],
-	['Club Rodeo x Salto Festival (Half Marathon Event)', 'Trafalgar Pizza Club, Bcn', 'House & Tech house', 'Sport Event', 'Feb ‘26'],
-	['Macarena Club x Plastic Academia x Ibiza Sonica Radio', 'Macarena Club, Bcn', 'Deep House / Deep Tech', 'Club', 'Dec ‘25'],
-	['Climbat La Foixarda', 'Barcelona', 'House & Tech house', 'Private Event', 'Dec ‘25'],
-	['Bulder Planet 10th Anniversary Party', 'Mataró', 'House & Tech house', 'Sport Event', 'Nov ‘25'],
-	['G + J Birthday Party', 'Casa Bonay, Bcn', 'House, Disco, Classics', 'Private Party', 'Nov ‘25'],
-	['Sumak Terra', 'El Palauet Royal, Bcn', 'House & Latin Tech', 'Private Event', 'Nov ‘25'],
-	['Futbol Solidari 10th Anniversary Party', 'Mataró', 'Urban', 'Party', 'Nov ‘25'],
-	['Club Rodeo', 'Sea You House, Bcn', 'House & Tech house', 'Sport Event', 'Nov ‘25'],
-	['SíSí restaurant inauguration', 'The Social Hub, Bcn', 'Deep House / Deep Tech', 'Private', 'Sep ‘25'],
-	['Elisava Degree Show', 'Las Tres Chimeneas, Bcn', 'Techno', 'Showcase', 'Jun ‘25'],
-	['La Textil Collective Afterparty', 'La Textil, Bcn', 'House & Tech house', 'Afterparty', 'May ‘25'],
-	['Casino Barcelona', 'Casino, Bcn', 'Deep House & Soulful', 'Ambient', 'Apr ‘25'],
-	['Macarena Club', 'Macarena Club, Bcn', 'Depp House / Deep Tech', 'Club', 'Apr ‘25'],
-	['Bulder Planet', 'Mataró', 'House & Tech house', 'Sport Event', 'Mar ‘25'],
-	['Pacha Barcelona', 'Pacha Club, Bcn', 'House & Tech house', 'Club', 'Feb ‘25'],
-	['Casino Barcelona', 'Casino, Bcn', 'Deep House & Soulful', 'Ambient', 'Jan ‘25'],
-	['Christmas Fair', 'El Moll de la Fusta, Bcn', 'Pop', 'Ambient', 'Dec ‘24'],
 ];
