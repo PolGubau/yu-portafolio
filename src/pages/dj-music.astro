@@ -1,9 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { events } from "../content/projects";
+import eventsData from "../content/events.json";
 import Photo from "../components/Photo.astro";
 
 import { djMusic, contact, pageTitle } from "../content/site";
+// The first event of events.json is highlighted; the rest go in the list.
+const [featured, ...rest] = eventsData as {
+	name: string;
+	location: string;
+	genres: string;
+	type: string;
+	date: string;
+	photo?: string;
+}[];
 const gallery = djMusic.gallery;
 ---
 
@@ -32,6 +41,30 @@ const gallery = djMusic.gallery;
 				</span>
 			</div>
 			<h2 class="events-title">{djMusic.eventsHeading}</h2>
+			{
+				featured && (
+					<article class="event-featured">
+						{featured.photo && (
+							<Photo
+								src={featured.photo}
+								alt={featured.name}
+								sizes="(min-width: 700px) 260px, 100vw"
+								widths={[400, 700, 1000]}
+								priority
+							/>
+						)}
+						<div class="event-featured-body">
+							<span class="event-featured-date">{featured.date}</span>
+							<h3>{featured.name}</h3>
+							<p class="event-featured-place">{featured.location}</p>
+							<p class="event-tags">
+								<span>{featured.type}</span>
+								<span>{featured.genres}</span>
+							</p>
+						</div>
+					</article>
+				)
+			}
 			<table class="events-table">
 				<thead
 					><tr>{djMusic.eventsColumns.map((column) => <th>{column}</th>)}</tr
@@ -39,20 +72,35 @@ const gallery = djMusic.gallery;
 				>
 				<tbody
 					>{
-						events.map(([name, location, genres, type, date]) => (
+						rest.map((e) => (
 							<tr>
-								<>
-									<td>{name}</td>
-									<td>{location}</td>
-									<td>{genres}</td>
-									<td>{type}</td>
-									<td>{date}</td>
-								</>
+								<td>{e.name}</td>
+								<td>{e.location}</td>
+								<td>{e.genres}</td>
+								<td>{e.type}</td>
+								<td>{e.date}</td>
 							</tr>
 						))
 					}</tbody
 				>
 			</table>
+			<ul class="events-cards">
+				{
+					rest.map((e) => (
+						<li>
+							<div class="event-card-head">
+								<strong>{e.name}</strong>
+								<span>{e.date}</span>
+							</div>
+							<p class="event-card-place">{e.location}</p>
+							<p class="event-tags">
+								<span>{e.type}</span>
+								<span>{e.genres}</span>
+							</p>
+						</li>
+					))
+				}
+			</ul>
 		</section>
 		<aside class="music-gallery" aria-label={djMusic.galleryLabel}>
 			{
