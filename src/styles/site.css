@@ -229,6 +229,7 @@ a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
 	margin: 0 0 22px;
+	height: 260px;
 	background: #0b0b0b;
 	color: #fff;
 	overflow: hidden;
@@ -363,7 +364,7 @@ img[data-zoom-src] { cursor: zoom-in; }
 	.music-gallery { position: static; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); max-height: none; overflow: visible; margin-top: 26px; }
 	.events-table { display: none; }
 	.events-cards { display: block; }
-	.event-featured { grid-template-columns: minmax(0, 1fr); }
+	.event-featured { grid-template-columns: minmax(0, 1fr); height: auto; }
 	.event-featured img { height: 220px; }
 	.event-featured h3 { font-size: 32px; }
 	.project-detail { grid-template-columns: minmax(0, 1fr); }
