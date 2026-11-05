@@ -318,9 +318,15 @@ img[data-zoom-src] { cursor: zoom-in; }
 .home-bottom-left { --dx: -28px; --dy: 18px; animation-delay: .55s !important; }
 .home-bottom-right { --dx: 28px; --dy: 18px; animation-delay: .65s !important; }
 
+@media (min-width: 621px) {
+	.music-page { display: grid; grid-template-columns: minmax(0, 8fr) minmax(150px, 3fr); gap: 18px; }
+	.music-gallery { margin-top: 0; }
+}
+
 @media (min-width: 1000px) {
 	:root { --page-inset: 22px; }
 	.project-grid { column-gap: 4.4vw; row-gap: 6vw; }
+	.music-page { grid-template-columns: minmax(0, 8fr) minmax(300px, 3.2fr); gap: 30px; }
 	.project-detail { grid-template-columns: minmax(0, 8fr) minmax(300px, 4fr); gap: 3rem; }
 	.project-description { top: 22px; }
 }
