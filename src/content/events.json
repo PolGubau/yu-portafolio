@@ -4,8 +4,22 @@
 		"location": "Hotel W Barcelona",
 		"genres": "House, Soulful, Jackin, Nu-Disco",
 		"type": "Club & Ambient",
-		"date": "Now",
+		"date": "January - Now",
 		"photo": "/media/dj/IMG_1172.jpg"
+	},
+	{
+		"name": "Wedding Z & M",
+		"location": "Finca Mas Solers, Bcn",
+		"genres": "Open Format",
+		"type": "Private Event",
+		"date": "Oct ‘26"
+	},
+	{
+		"name": "La Cinc - Birthday Party",
+		"location": "Sala Apolo, Bcn",
+		"genres": "Techno",
+		"type": "Club / Private Event",
+		"date": "Sep ‘26"
 	},
 	{
 		"name": "Noxe Club",
@@ -19,13 +33,6 @@
 		"location": "The Social Hub, Bcn",
 		"genres": "House, Jackin, Nu-Disco",
 		"type": "Private Event",
-		"date": "May ‘26"
-	},
-	{
-		"name": "La Siesta Afterwork",
-		"location": "Salt Restaurant, Bcn",
-		"genres": "House, Jackin, Soulful",
-		"type": "Ambient",
 		"date": "May ‘26"
 	},
 	{
