@@ -35,9 +35,9 @@ const format = (text: string) =>
 			}
 			<div class="about-links">
 				<h2><a href={`mailto:${contact.email}`}>{about.contactHeading}</a></h2>
-				<a href={`mailto:${contact.email}`}>{contact.email}</a>
+				<a href={`mailto:${contact.email}`}><strong>{contact.email}</strong></a>
 				<a href={contact.instagram.url} target="_blank" rel="noreferrer"
-					>Instagram<br />{contact.instagram.handle}</a
+					><strong>Instagram</strong><br />{contact.instagram.handle}</a
 				>
 				<a href={contact.soundcloud.url} target="_blank" rel="noreferrer"
 					><strong>{contact.soundcloud.label}</strong><br />{
