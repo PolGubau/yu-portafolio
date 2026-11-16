@@ -319,8 +319,22 @@ img[data-zoom-src] { cursor: zoom-in; }
 .home-bottom-right { --dx: 28px; --dy: 18px; animation-delay: .65s !important; }
 
 @media (min-width: 621px) {
-	.music-page { display: grid; grid-template-columns: minmax(0, 8fr) minmax(150px, 3fr); gap: 18px; }
+	.music-page {
+		display: grid;
+		grid-template-columns: minmax(0, 8fr) minmax(150px, 3fr);
+		grid-template-rows: minmax(0, 1fr);
+		gap: 18px;
+		height: calc(100svh - 50px);
+		padding-bottom: 0;
+	}
+	.music-copy, .music-gallery {
+		min-height: 0;
+		overflow-y: auto;
+		overscroll-behavior-y: contain;
+		padding-bottom: var(--page-inset);
+	}
 	.music-gallery { margin-top: 0; }
+	.music-gallery img { flex-shrink: 0; }
 }
 
 @media (min-width: 1000px) {

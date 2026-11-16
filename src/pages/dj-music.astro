@@ -18,8 +18,8 @@ const gallery = djMusic.gallery;
 
 <BaseLayout title={pageTitle(djMusic.title)} description={djMusic.description}>
 	<main class="page-shell music-page">
-		<section class="music-copy">
-			<h1><a href="/">{djMusic.heading}</a></h1>
+		<section class="music-copy" aria-labelledby="music-heading" tabindex="0">
+			<h1 id="music-heading"><a href="/">{djMusic.heading}</a></h1>
 			<div class="music-links">
 				<span>
 					<strong>{djMusic.linkLabels.sets}</strong><a
@@ -102,7 +102,7 @@ const gallery = djMusic.gallery;
 				}
 			</ul>
 		</section>
-		<aside class="music-gallery" aria-label={djMusic.galleryLabel}>
+		<aside class="music-gallery" aria-label={djMusic.galleryLabel} tabindex="0">
 			{
 				gallery.map((image, index) => (
 					<Photo
