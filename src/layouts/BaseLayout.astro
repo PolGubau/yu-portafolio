@@ -52,6 +52,19 @@ const structuredData = JSON.stringify({
 			)
 		}
 		<title>{title}</title>
+			<script
+				is:inline
+				async
+				src="https://www.googletagmanager.com/gtag/js?id=G-QX4TRNKHCC"
+			></script>
+			<script is:inline>
+				window.dataLayer = window.dataLayer || [];
+				function gtag() {
+					window.dataLayer.push(arguments);
+				}
+			gtag("js", new Date());
+			gtag("config", "G-QX4TRNKHCC");
+			</script>
 		<link
 			rel="preload"
 			href="/fonts/dm-sans.woff2"
